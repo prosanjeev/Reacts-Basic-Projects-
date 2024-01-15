@@ -1,3 +1,13 @@
+
+
+![grid calculation](https://github.com/prosanjeev/Reacts-Small-Projects-/assets/154009697/be601645-9042-41bc-ac23-cd28573cdcb3)
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
