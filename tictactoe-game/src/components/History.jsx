@@ -2,6 +2,7 @@ const History = ({ history, moveTo, currentMove }) => {
     return (
       <div className="history-wrapper">
         <ul className="history">
+
           {history.map((_, index) => (
             <li key={index}>
               <button
@@ -13,6 +14,7 @@ const History = ({ history, moveTo, currentMove }) => {
               </button>
             </li>
           ))}
+          
         </ul>
       </div>
     );

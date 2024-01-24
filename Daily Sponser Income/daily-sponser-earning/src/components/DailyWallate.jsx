@@ -22,7 +22,7 @@ const DailyWallet = () => {
           return newBalances;
         });
       }
-    }, 100); // Calculate every 100 milliseconds
+    }, 100); // Calculate every 100 milliseconds // replace 100 to 24*60*60*1000 for per day
 
     // Clean up the interval when the component is unmounted
     return () => {

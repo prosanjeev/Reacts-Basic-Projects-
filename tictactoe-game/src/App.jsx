@@ -1,26 +1,28 @@
-import './style.scss'
-import { useState } from 'react';
-import Board from './components/Board';
-import StatusMessage from './components/StatusMessage';
-import History from './components/History';
-import { calculateWinner } from './winner';
+import "./style.scss";
+import { useState } from "react";
+import Board from "./components/Board";
+import StatusMessage from "./components/StatusMessage";
+import History from "./components/History";
+import { calculateWinner } from "./winner";
 
 const NEW_GAME = [{ squares: Array(9).fill(null), isXNext: false }];
 
 function App() {
+
   const [history, setHistory] = useState(NEW_GAME);
+
   const [currentMove, setCurrentMove] = useState(0);
 
   const gamingBoard = history[currentMove];
 
   const { winner, winningSquares } = calculateWinner(gamingBoard.squares);
 
-  const handleSquareClick = clickedPosition => {
+  const handleSquareClick = (clickedPosition) => {
     if (gamingBoard.squares[clickedPosition] || winner) {
       return;
     }
 
-    setHistory(currentHistory => {
+    setHistory((currentHistory) => {
       const isTraversing = currentMove + 1 !== currentHistory.length;
 
       const lastGamingState = isTraversing
@@ -30,7 +32,7 @@ function App() {
       const nextSquaresState = lastGamingState.squares.map(
         (squareValue, position) => {
           if (clickedPosition === position) {
-            return lastGamingState.isXNext ? 'X' : 'O';
+            return lastGamingState.isXNext ? "X" : "O";
           }
           return squareValue;
         }
@@ -46,10 +48,10 @@ function App() {
       });
     });
 
-    setCurrentMove(move => move + 1);
+    setCurrentMove((move) => move + 1);
   };
 
-  const moveTo = move => {
+  const moveTo = (move) => {
     setCurrentMove(move);
   };
 
@@ -73,14 +75,14 @@ function App() {
       <button
         type="button"
         onClick={onNewGameStart}
-        className={`btn-reset ${winner ? 'active' : ''}`}
+        className={`btn-reset ${winner ? "active" : ""}`}
       >
         Start new game
       </button>
 
       <h2
         style={{
-          fontWeight: 'normal',
+          fontWeight: "normal",
         }}
       >
         Current game history
